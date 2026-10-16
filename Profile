@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Muthamizh Restaurant in Punjaipuliampatti, Tamil Nadu. Explore our menu, enquire about events, and request a table booking.">
+  <meta name="theme-color" content="#080808">
+  <title>Muthamizh Restaurant | Taste the Tradition. Enjoy Every Meal.</title>
+  <style>
+    :root {
+      --gold: #eabd22;
+      --gold-light: #ffe783;
+      --black: #080808;
+      --panel: #151515;
+      --muted: #c9c9c9;
+      --cream: #fff9e9;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 95px; }
+    body { font-family: Arial, Helvetica, sans-serif; background: var(--black); color: #fff; line-height: 1.65; }
+    a { color: inherit; }
+    .container { width: min(1120px, 92%); margin: 0 auto; }
+    .site-header { position: sticky; top: 0; z-index: 100; background: rgba(5,5,5,.97); border-bottom: 1px solid #6d5515; }
+    .header-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .brand img { width: 60px; height: 60px; object-fit: contain; }
+    .brand-name { color: var(--gold); font-weight: 800; letter-spacing: 1px; font-size: 18px; line-height: 1.2; }
+    .brand-tag { color: #ddd; font-size: 11px; letter-spacing: 1.3px; margin-top: 4px; }
+    .nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 18px; }
+    .nav a { text-decoration: none; font-size: 13px; color: #eee; }
+    .nav a:hover, .nav a:focus { color: var(--gold); }
+    .hero { min-height: 610px; display: grid; place-items: center; text-align: center; padding: 65px 0; background: linear-gradient(90deg, rgba(0,0,0,.86), rgba(0,0,0,.58), rgba(0,0,0,.88)), url('https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=1800&q=85') center/cover; }
+    .hero-content { max-width: 820px; }
+    .hero-logo { width: min(190px, 45vw); height: auto; max-height: 190px; object-fit: contain; margin-bottom: 14px; }
+    .eyebrow { color: var(--gold-light); text-transform: uppercase; letter-spacing: 3px; font-size: 12px; font-weight: bold; }
+    h1 { color: var(--gold); font-size: clamp(38px, 6vw, 66px); line-height: 1.1; margin: 12px 0; }
+    .hero h2 { font-size: clamp(19px, 3vw, 27px); margin-bottom: 12px; }
+    .hero p { color: #eee; max-width: 650px; margin: 0 auto 25px; }
+    .button { display: inline-block; padding: 12px 22px; border: 1px solid var(--gold); border-radius: 5px; background: var(--gold); color: #111; text-decoration: none; font-weight: 700; cursor: pointer; font-size: 14px; }
+    .button:hover { background: transparent; color: var(--gold); }
+    .button.secondary { background: transparent; color: var(--gold); }
+    .button-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    section { padding: 76px 0; }
+    .section-heading { text-align: center; margin-bottom: 38px; }
+    .section-heading h2 { color: var(--gold); font-size: clamp(28px, 4vw, 38px); line-height: 1.2; }
+    .section-heading p { color: var(--muted); margin-top: 9px; }
+    .about { background: #111; }
+    .about-copy { max-width: 850px; margin: auto; text-align: center; color: #ddd; }
+    .about-copy p { margin: 0 0 15px; }
+    .gold { color: var(--gold-light); font-weight: 700; }
+    .info-grid, .menu-grid, .event-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .info-grid { margin-top: 32px; }
+    .info-card, .menu-card, .event-card { background: var(--panel); border: 1px solid #493b15; border-radius: 10px; padding: 23px; }
+    .info-card { text-align: center; }
+    .info-card h3, .event-card h3 { color: var(--gold); margin-bottom: 7px; }
+    .menu-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .menu-card { transition: transform .2s, border-color .2s; }
+    .menu-card:hover { transform: translateY(-3px); border-color: var(--gold); }
+    .menu-card h3 { color: var(--gold); font-size: 20px; border-bottom: 1px solid #4d4019; padding-bottom: 10px; margin-bottom: 10px; }
+    .menu-card ul { list-style: none; }
+    .menu-card li { color: #e9e9e9; padding: 4px 0; }
+    .menu-card li::before { content: "✦ "; color: var(--gold); }
+    .note { color: var(--muted); text-align: center; margin-top: 24px; font-size: 13px; }
+    .events { background: #111; }
+    .event-card { text-align: center; border-bottom: 3px solid var(--gold); }
+    .event-icon { font-size: 36px; margin-bottom: 8px; }
+    .booking-form { max-width: 760px; margin: auto; padding: 28px; background: var(--panel); border: 1px solid #493b15; border-radius: 12px; }
+    .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.full { grid-column: 1 / -1; }
+    label { color: var(--gold-light); font-size: 14px; }
+    input, select, textarea { width: 100%; padding: 12px; background: #090909; color: #fff; border: 1px solid #555; border-radius: 5px; font: inherit; }
+    input:focus, select:focus, textarea:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+    .booking-form button { width: 100%; margin-top: 20px; }
+    .small-print { color: #bbb; font-size: 12px; margin-top: 12px; }
+    .contact { background: #111; text-align: center; }
+    .contact-lines p { margin: 9px 0; }
+    .contact a:not(.button) { color: var(--gold-light); text-decoration: none; }
+    .contact-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .review-note { font-size: 12px; color: #aaa; margin-top: 12px; }
+    footer { border-top: 1px solid #493b15; background: #030303; text-align: center; padding: 28px 15px; color: #bbb; }
+    footer strong { color: var(--gold); }
+    .whatsapp-float { position: fixed; right: 18px; bottom: 18px; z-index: 120; background: #25d366; color: #fff; border-radius: 30px; padding: 12px 17px; text-decoration: none; font-weight: bold; box-shadow: 0 3px 14px #0008; }
+    @media (max-width: 850px) {
+      .header-inner { flex-direction: column; padding: 12px 0; }
+      .nav { justify-content: center; gap: 12px 16px; padding-bottom: 5px; }
+      .menu-grid, .event-grid, .info-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px) {
+      .menu-grid, .event-grid, .info-grid, .form-grid { grid-template-columns: 1fr; }
+      .form-group.full { grid-column: auto; }
+      section { padding: 55px 0; }
+      .hero { min-height: 540px; }
+      .brand img { width: 52px; height: 52px; }
+      .brand-name { font-size: 16px; }
+      .booking-form { padding: 20px; }
+      .whatsapp-float { right: 12px; bottom: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Muthamizh Restaurant home">
+        <img src="logo.png" alt="Muthamizh Restaurant logo">
+        <span>
+          <span class="brand-name">MUTHAMIZH RESTAURANT</span>
+          <span class="brand-tag">TASTE THE TRADITION</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#menu">Menu</a>
+        <a href="#events">Events</a>
+        <a href="#booking">Pre-Booking</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <img class="hero-logo" src="logo.png" alt="Muthamizh Restaurant logo">
+        <p class="eyebrow">Good food • Great company</p>
+        <h1>Muthamizh Restaurant</h1>
+        <h2>Taste the Tradition. Enjoy Every Meal.</h2>
+        <p>Delicious food, friendly moments, and meals worth sharing. Bring your family and friends together at Muthamizh Restaurant.</p>
+        <div class="button-row">
+          <a class="button" href="#menu">Explore Our Menu</a>
+          <a class="button secondary" href="#booking">Request a Table</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container">
+        <div class="section-heading">
+          <h2>About Us</h2>
+          <p>Friends brought together by a shared love of food.</p>
+        </div>
+        <div class="about-copy">
+          <p>Welcome to <span class="gold">Muthamizh Restaurant</span>, a place where food brings people together and every meal is an opportunity to make memories.</p>
+          <p>Started on <span class="gold">03 July 2026</span>, Muthamizh Restaurant was founded and is run by friends who share a passion for food, hospitality, and creating a welcoming dining experience.</p>
+          <p>From flavourful biryani and Chinese rice and noodles to Indian breads, tasty gravies, tandoori favourites, starters, and desserts, we bring a variety of choices together for you to enjoy.</p>
+          <p class="gold">Our slogan: “Taste the Tradition. Enjoy Every Meal.”</p>
+          <p>Our goal is simple: serve our guests warmly and make time spent over a meal feel special.</p>
+        </div>
+        <div class="info-grid">
+          <article class="info-card"><h3>Our Beginning</h3><p>03 July 2026</p></article>
+          <article class="info-card"><h3>Run By Friends</h3><p>A shared passion for food and hospitality.</p></article>
+          <article class="info-card"><h3>Our Promise</h3><p>Good food, great taste, happy memories.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Our Menu</h2>
+          <p>Find your favourites and enjoy a meal with us.</p>
+        </div>
+        <div class="menu-grid">
+          <article class="menu-card"><h3>🍚 Biriyani</h3><ul><li>Plain Biriyani</li><li>Egg Biriyani</li><li>Chicken Biriyani</li><li>Bucket Biriyani</li><li>Medium Bucket (serves 5–6)</li><li>Large Bucket (serves 7–8)</li></ul></article>
+          <article class="menu-card"><h3>🥡 Chinese Rice & Noodles</h3><ul><li>Veg Rice / Noodles</li><li>Egg Rice / Noodles</li><li>Mushroom Rice / Noodles</li><li>Baby Corn Rice / Noodles</li><li>Paneer Rice / Noodles</li><li>Chicken Rice / Noodles</li><li>Schezwan Rice / Noodles</li></ul></article>
+          <article class="menu-card"><h3>🍗 Non-Veg Gravies</h3><ul><li>Butter Chicken</li><li>Pepper Chicken</li><li>Chettinad Chicken</li><li>Pallipalayam Chicken</li><li>Hyderabadi Chicken</li><li>Chicken Manchurian</li><li>Kadai Chicken Gravy</li><li>Chicken Tikka Masala</li><li>Chilli Chicken Gravy</li><li>Prawn Pepper Gravy</li><li>Fish Masala Gravy</li><li>Kaadai Chicken Gravy</li><li>Chicken Do Pyaza</li></ul></article>
+          <article class="menu-card"><h3>🥦 Veg Gravies</h3><ul><li>Paneer Butter Masala</li><li>Mushroom Masala</li><li>Gobi Masala</li><li>Mixed Vegetable Curry</li><li>Green Peas Masala</li></ul></article>
+          <article class="menu-card"><h3>🔥 Tandoori & Kebabs</h3><ul><li>Tandoori Chicken (half/full)</li><li>Tandoori Pepper Chicken (half/full)</li><li>Chicken Tikka Kebab (6 pcs)</li><li>Tangdi Kebab (2 pcs)</li><li>Malai Chicken Tikka (6 pcs)</li><li>Hariyali Chicken Tikka (6 pcs)</li><li>Fish Tikka</li><li>Prawn Tikka</li></ul></article>
+          <article class="menu-card"><h3>🫓 Indian Breads</h3><ul><li>Plain Naan / Roti / Kulcha</li><li>Butter Naan / Kulcha</li><li>Garlic Naan / Roti / Kulcha</li><li>Tandoori Parotta</li><li>Lachha Paratha</li><li>Pudina Paratha</li><li>Phulka</li></ul></article>
+          <article class="menu-card"><h3>🥗 Veg Starters</h3><ul><li>Mushroom 65</li><li>Gobi 65</li><li>Paneer 65</li><li>Baby Corn 65</li></ul></article>
+          <article class="menu-card"><h3>🍗 Non-Veg Starters</h3><ul><li>Chicken 65 (bone / boneless)</li><li>Fish 65 / Prawn 65</li><li>Pepper Fry (chicken / fish / prawn)</li><li>Dragon (chicken / fish / prawn)</li><li>Chilli (chicken / fish / prawn)</li><li>Chicken Manchurian</li><li>Hot Pepper Chicken</li><li>Honey Chicken</li><li>Lemon Chicken</li><li>Garlic Chicken</li><li>Ginger Chicken</li><li>Chicken Lollipop</li></ul></article>
+          <article class="menu-card"><h3>🍲 Soup</h3><ul><li>Veg Clear Soup</li><li>Veg Hot & Sour Soup</li><li>Veg Manchow Soup</li><li>Non-Veg Clear Soup</li><li>Non-Veg Hot & Sour Soup</li><li>Non-Veg Manchow Soup</li></ul></article>
+          <article class="menu-card"><h3>🍳 Egg</h3><ul><li>Half Boil</li><li>Boiled Egg</li><li>Omelette</li><li>Egg Kalakki</li><li>Egg Podimas</li><li>Egg Gravy</li></ul></article>
+          <article class="menu-card"><h3>🍨 Desserts & Drinks</h3><ul><li>Gulab Jamun</li><li>Ice Cream</li><li>Soda</li><li>Coca-Cola</li><li>Water Bottle</li></ul></article>
+        </div>
+        <p class="note">Menu availability and prices may change. Please contact us to confirm today's availability and prices.</p>
+      </div>
+    </section>
+
+    <section class="events" id="events">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Events & Celebrations</h2>
+          <p>Make your special moments even more memorable with good food.</p>
+        </div>
+        <div class="event-grid">
+          <article class="event-card"><div class="event-icon">🎂</div><h3>Birthday Celebrations</h3><p>Contact us to discuss your birthday meal or gathering.</p></article>
+          <article class="event-card"><div class="event-icon">👨‍👩‍👧‍👦</div><h3>Family Gatherings</h3><p>Bring family and friends together over a delicious meal.</p></article>
+          <article class="event-card"><div class="event-icon">🎉</div><h3>Special Occasions</h3><p>Tell us about your event and ask about food arrangements.</p></article>
+        </div>
+        <div class="button-row" style="margin-top:28px">
+          <a class="button" href="https://wa.me/916369689798?text=Hello%20Muthamizh%20Restaurant%2C%20I%20would%20like%20to%20enquire%20about%20an%20event." target="_blank" rel="noopener">Enquire About an Event</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="booking">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Pre-Book Your Table</h2>
+          <p>Send us your preferred date, time, and party size through WhatsApp.</p>
+        </div>
+        <form class="booking-form" id="bookingForm">
+          <div class="form-grid">
+            <div class="form-group"><label for="customerName">Your name *</label><input id="customerName" name="customerName" type="text" autocomplete="name" required placeholder="Enter your name"></div>
+            <div class="form-group"><label for="phone">Your mobile number *</label><input id="phone" name="phone" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" required placeholder="10-digit mobile number"></div>
+            <div class="form-group"><label for="bookingDate">Booking date *</label><input id="bookingDate" name="bookingDate" type="date" required></div>
+            <div class="form-group"><label for="bookingTime">Preferred time *</label><input id="bookingTime" name="bookingTime" type="time" required></div>
+            <div class="form-group"><label for="guests">Number of guests *</label><select id="guests" name="guests" required><option value="">Select guests</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>More than 8</option></select></div>
+            <div class="form-group"><label for="occasion">Occasion</label><select id="occasion" name="occasion"><option>Regular dining</option><option>Birthday</option><option>Family gathering</option><option>Special occasion</option><option>Other</option></select></div>
+            <div class="form-group full"><label for="requests">Special requests</label><textarea id="requests" name="requests" rows="3" placeholder="Any special requirements?"></textarea></div>
+          </div>
+          <button class="button" type="submit">Send Booking Request on WhatsApp</button>
+          <p class="small-print">This form opens WhatsApp with your request. Your table is not confirmed until the restaurant replies and confirms availability.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Visit Muthamizh Restaurant</h2>
+          <p>We look forward to welcoming you.</p>
+        </div>
+        <div class="contact-lines">
+          <p>📞 Phone: <a href="tel:+916369689798">63696 89798</a></p>
+          <p>📍 Location: Punjaipuliampatti, Tamil Nadu</p>
+          <p>📅 Established: 03 July 2026</p>
+          <p>📸 Instagram: <a href="https://www.instagram.com/muthamizh_restaurant/" target="_blank" rel="noopener">@muthamizh_restaurant</a></p>
+        </div>
+        <div class="contact-buttons">
+          <a class="button" href="https://wa.me/916369689798" target="_blank" rel="noopener">WhatsApp Us</a>
+          <!-- Replace the placeholder below with your real Google Maps share link. -->
+          <a class="button secondary" href="https://www.google.com/maps/search/?api=1&query=Muthamizh+Restaurant+Punjaipuliampatti" target="_blank" rel="noopener">Find Us on Google Maps</a>
+          <!-- Replace the placeholder below with your Google review link for the direct review form. -->
+          <a class="button secondary" href="https://www.google.com/maps/search/?api=1&query=Muthamizh+Restaurant+Punjaipuliampatti" target="_blank" rel="noopener">Google Reviews</a>
+        </div>
+        <p class="review-note">For the most accurate directions and review link, replace these buttons with the links from your restaurant's Google Business Profile.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>MUTHAMIZH RESTAURANT</strong></p>
+    <p>Taste the Tradition. Enjoy Every Meal.</p>
+    <p>Your Opinion = Our Motivation ❤️</p>
+    <p style="margin-top:12px">© <span id="year"></span> Muthamizh Restaurant. All rights reserved.</p>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/916369689798" target="_blank" rel="noopener" aria-label="Contact Muthamizh Restaurant on WhatsApp">WhatsApp</a>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const bookingDate = document.getElementById("bookingDate");
+    const now = new Date();
+    const localDate = [
+      now.getFullYear(),
+      String(now.getMonth() + 1).padStart(2, "0"),
+      String(now.getDate()).padStart(2, "0")
+    ].join("-");
+    bookingDate.min = localDate;
+
+    document.getElementById("bookingForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById("customerName").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const date = bookingDate.value;
+      const time = document.getElementById("bookingTime").value;
+      const guests = document.getElementById("guests").value;
+      const occasion = document.getElementById("occasion").value;
+      const requests = document.getElementById("requests").value.trim();
+
+      if (!/^[0-9]{10}$/.test(phone)) {
+        alert("Please enter a valid 10-digit mobile number.");
+        return;
+      }
+
+      const message = [
+        "Hello Muthamizh Restaurant!",
+        "",
+        "I would like to request a table booking.",
+        "",
+        "Name: " + name,
+        "Mobile: " + phone,
+        "Date: " + date,
+        "Preferred time: " + time,
+        "Number of guests: " + guests,
+        "Occasion: " + occasion,
+        "Special requests: " + (requests || "None"),
+        "",
+        "Please confirm table availability. Thank you!"
+      ].join("\\n");
+
+      const url = "https://wa.me/916369689798?text=" + encodeURIComponent(message);
+      window.open(url, "_blank", "noopener");
+    });
+  </script>
+</body>
+</html>
